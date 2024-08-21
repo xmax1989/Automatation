@@ -5,14 +5,13 @@ from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 
-driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
-
 # добавляем переменные локаторов
 Locator_time = "#delay"
 Locator = "//span[text() = '7']" # для смены локатора заменить цифру или символ(0,1,-,=,+...)
 
 @pytest.mark.test_positive
 def test_calc():
+    driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
     driver.get("https://bonigarcia.dev/selenium-webdriver-java/slow-calculator.html")
 
     driver.find_element(By.CSS_SELECTOR, "#delay").clear()
@@ -24,7 +23,6 @@ def test_calc():
     sleep(45)
 
     res = driver.find_element(By.CSS_SELECTOR, "[class='screen']").text
-
     assert res == "15"
 
-driver.quit()
+    driver.quit()
