@@ -7,7 +7,8 @@ from selenium.webdriver.common.by import By
 
 # добавляем переменные локаторов
 Locator_time = "#delay"
-Locator = "//span[text() = '7']" # для смены локатора заменить цифру или символ(0,1,-,=,+...)
+Locator = "//span[text() = '7']"  # для смены локатора заменить цифру или символ(0,1,-,=,+...)
+
 
 @pytest.mark.test_positive
 def test_calc():
@@ -24,5 +25,6 @@ def test_calc():
 
     res = driver.find_element(By.CSS_SELECTOR, "[class='screen']").text
     assert res == "15"
-
+        
     driver.quit()
+        

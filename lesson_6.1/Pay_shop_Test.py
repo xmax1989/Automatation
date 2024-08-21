@@ -4,9 +4,9 @@ from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 
-driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
+# вход на сайт и авторизация
 
-    # вход на сайт и авторизация
+
 @pytest.mark.test_positive
 def test_pay_shop():
     driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
@@ -20,7 +20,7 @@ def test_pay_shop():
     driver.find_element(By.ID, "add-to-cart-sauce-labs-bolt-t-shirt").click()
     driver.find_element(By.ID, "add-to-cart-sauce-labs-onesie").click()
 
-    #работа с корзиной
+    # работа с корзиной
     driver.find_element(By.ID, "shopping_cart_container").click()
     driver.find_element(By.ID, "checkout").click()
 
