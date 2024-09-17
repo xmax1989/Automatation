@@ -1,0 +1,1 @@
+insert into employee(company_id, first_name, last_name, phone)                 values(:id, :name, :surname, :phone)

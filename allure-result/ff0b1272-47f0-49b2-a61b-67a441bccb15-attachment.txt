@@ -1,0 +1,1 @@
+select MAX(id) from employee where company_id = :c_id
